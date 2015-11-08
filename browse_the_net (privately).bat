@@ -1,4 +1,5 @@
 @ECHO OFF
+title Browse The Net Like a Paranoid
 REM This program opens one of two browsers on one's computer and opens a search engine.
 REM But in this case, it opens the so-called private browsing mode where internet history 
 REM and whatnot is not recorded by the browsers.
