@@ -14,21 +14,23 @@ SET /A number_to_guess = %RANDOM%
 SET /P guess=Guess?
 if %guess%==%number_to_guess% (goto won) else (goto maybe_end)
 
+:maybe_end
+SET /P ans=Do you want to continue (Y/N):
+if /i %ans%==Y (goto guess_again) 
+if /i "%ans%"=="N" (goto end) else call :invalid_input
+pause
+
 :won
 ECHO You have won!
 pause
-
-:maybe_end
-SET /P ans="Do you want to continue (Y/N)"
-REM there is a problem when the user input lowercase y. It doesn't go to end it goes to invalid_input.
-if not "%ans%"=="Y" if not "%ans%"=="y" (goto end) else (goto invalid_input)
-if not "%ans%"=="N" if not "%ans%"=="n" (goto guess_again) else (goto invalid_input)
-
-:invalid_input
-echo "It's either a lowercase or uppercase y or n. Nothing else"
-goto maybe_end
+goto eof
 
 :end
 ECHO.
 ECHO Goodbye.
 pause
+goto eof
+
+:invalid_input
+echo It's either a lowercase or uppercase y or n. Nothing else
+goto maybe_end
