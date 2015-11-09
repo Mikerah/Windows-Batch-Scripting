@@ -36,9 +36,9 @@ if %se%==3 start chrome.exe -incognito www.disconnect.com
 goto eof
 
 :mozilla_firefox
-if %se%==1 start firefox.exe -private www.startpage.com
-if %se%==2 start firefox.exe -private www.duckduckgo.com
-if %se%==3 start firefox.exe -private www.disconnect.com
+if %se%==1 start firefox.exe -private-window www.startpage.com
+if %se%==2 start firefox.exe -private-window www.duckduckgo.com
+if %se%==3 start firefox.exe -private-window www.disconnect.com
 goto eof
 
 pause
